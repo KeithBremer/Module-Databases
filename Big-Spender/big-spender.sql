@@ -1,631 +1,635 @@
-CREATE TABLE expense_types (id SERIAL PRIMARY KEY,
-                                              expense_type VARCHAR(30) NOT NULL);
+CREATE TABLE expense_types (
+   id SERIAL PRIMARY KEY,
+   expense_type VARCHAR(30) NOT NULL);
 
 
-CREATE TABLE expense_areas (id SERIAL PRIMARY KEY,
-                                              expense_area VARCHAR(30) NOT NULL);
+CREATE TABLE expense_areas (
+   id SERIAL PRIMARY KEY,
+   expense_area VARCHAR(30) NOT NULL);
 
 
-CREATE TABLE suppliers (id SERIAL PRIMARY KEY,
-                                          supplier VARCHAR(60) NOT NULL);
+CREATE TABLE suppliers (
+   id SERIAL PRIMARY KEY,
+   supplier VARCHAR(60) NOT NULL);
 
 
-CREATE TABLE spends (id SERIAL PRIMARY KEY,
-                                       expense_type_id INT REFERENCES expense_types(id),
-                                                                      expense_area_id INT REFERENCES expense_areas(id),
-                                                                                                     supplier_id INT REFERENCES suppliers(id), date DATE NOT NULL,
-                                                                                                                                                         transaction_no INT NOT NULL,
-                                                                                                                                                                            supplier_inv_no VARCHAR(20) NOT NULL,
-                                                                                                                                                                                                        description VARCHAR(90) NOT NULL,
-                                                                                                                                                                                                                                amount NUMERIC NOT NULL);
-
-
-INSERT INTO expense_types (expense_type)
-VALUES ('AUC Additions');
-
-
-INSERT INTO expense_types (expense_type)
-VALUES ('Bank Nurse : Qualified');
+CREATE TABLE spends (
+   id SERIAL PRIMARY KEY,
+   expense_type_id INT REFERENCES expense_types(id),
+   expense_area_id INT REFERENCES expense_areas(id),
+   supplier_id INT REFERENCES suppliers(id), date DATE NOT NULL,
+   transaction_no INT NOT NULL,
+   supplier_inv_no VARCHAR(20) NOT NULL,
+   description VARCHAR(90) NOT NULL,
+   amount NUMERIC NOT NULL);
 
 
 INSERT INTO expense_types (expense_type)
-VALUES ('Bedding & Linen: Disp');
+   VALUES ('AUC Additions');
 
 
 INSERT INTO expense_types (expense_type)
-VALUES ('Bldg Ctrcts - PFI Svc Chg');
+   VALUES ('Bank Nurse : Qualified');
 
 
 INSERT INTO expense_types (expense_type)
-VALUES ('Bldg/Eng Equip Maint/Rep');
+   VALUES ('Bedding & Linen: Disp');
 
 
 INSERT INTO expense_types (expense_type)
-VALUES ('Cleaning Equipment');
+   VALUES ('Bldg Ctrcts - PFI Svc Chg');
 
 
 INSERT INTO expense_types (expense_type)
-VALUES ('Computer Hardware Purch');
+   VALUES ('Bldg/Eng Equip Maint/Rep');
 
 
 INSERT INTO expense_types (expense_type)
-VALUES ('Computer Maintenance');
+   VALUES ('Cleaning Equipment');
 
 
 INSERT INTO expense_types (expense_type)
-VALUES ('Consultant');
+   VALUES ('Computer Hardware Purch');
 
 
 INSERT INTO expense_types (expense_type)
-VALUES ('Contr Refuse & Clin Waste');
+   VALUES ('Computer Maintenance');
 
 
 INSERT INTO expense_types (expense_type)
-VALUES ('Data Lines');
+   VALUES ('Consultant');
 
 
 INSERT INTO expense_types (expense_type)
-VALUES ('Electricity');
+   VALUES ('Contr Refuse & Clin Waste');
 
 
 INSERT INTO expense_types (expense_type)
-VALUES ('Ext Contr Laundry');
+   VALUES ('Data Lines');
 
 
 INSERT INTO expense_types (expense_type)
-VALUES ('External Consultancy Fees');
+   VALUES ('Electricity');
 
 
 INSERT INTO expense_types (expense_type)
-VALUES ('External Contractors');
+   VALUES ('Ext Contr Laundry');
 
 
 INSERT INTO expense_types (expense_type)
-VALUES ('Foundation Programme - F2');
+   VALUES ('External Consultancy Fees');
 
 
 INSERT INTO expense_types (expense_type)
-VALUES ('Furniture & Fittings');
+   VALUES ('External Contractors');
 
 
 INSERT INTO expense_types (expense_type)
-VALUES ('Gas');
+   VALUES ('Foundation Programme - F2');
 
 
 INSERT INTO expense_types (expense_type)
-VALUES ('Hcare Srv Rec NHS Trust');
+   VALUES ('Furniture & Fittings');
 
 
 INSERT INTO expense_types (expense_type)
-VALUES ('Income tax - Current');
+   VALUES ('Gas');
 
 
 INSERT INTO expense_types (expense_type)
-VALUES ('Laboratory Reagents');
+   VALUES ('Hcare Srv Rec NHS Trust');
 
 
 INSERT INTO expense_types (expense_type)
-VALUES ('Lease Rents');
+   VALUES ('Income tax - Current');
 
 
 INSERT INTO expense_types (expense_type)
-VALUES ('Med & Surg Equip Disp');
+   VALUES ('Laboratory Reagents');
 
 
 INSERT INTO expense_types (expense_type)
-VALUES ('Med & Surg Equip General');
+   VALUES ('Lease Rents');
 
 
 INSERT INTO expense_types (expense_type)
-VALUES ('Med & Surg Maint Contract');
+   VALUES ('Med & Surg Equip Disp');
 
 
 INSERT INTO expense_types (expense_type)
-VALUES ('Med Equip Additions');
+   VALUES ('Med & Surg Equip General');
 
 
 INSERT INTO expense_types (expense_type)
-VALUES ('Miscellaneous Expenditure');
+   VALUES ('Med & Surg Maint Contract');
 
 
 INSERT INTO expense_types (expense_type)
-VALUES ('National Insurance - Curr');
+   VALUES ('Med Equip Additions');
 
 
 INSERT INTO expense_types (expense_type)
-VALUES ('NonNHS Trade Pybls Curr');
+   VALUES ('Miscellaneous Expenditure');
 
 
 INSERT INTO expense_types (expense_type)
-VALUES ('Nurse band 6');
+   VALUES ('National Insurance - Curr');
 
 
 INSERT INTO expense_types (expense_type)
-VALUES ('Other Agency Staff');
+   VALUES ('NonNHS Trade Pybls Curr');
 
 
 INSERT INTO expense_types (expense_type)
-VALUES ('Other Clinical Costs');
+   VALUES ('Nurse band 6');
 
 
 INSERT INTO expense_types (expense_type)
-VALUES ('Other Liabilities - Curr');
+   VALUES ('Other Agency Staff');
 
 
 INSERT INTO expense_types (expense_type)
-VALUES ('Other recvables - Current');
+   VALUES ('Other Clinical Costs');
 
 
 INSERT INTO expense_types (expense_type)
-VALUES ('Professional Fees');
+   VALUES ('Other Liabilities - Curr');
 
 
 INSERT INTO expense_types (expense_type)
-VALUES ('Rates');
+   VALUES ('Other recvables - Current');
 
 
 INSERT INTO expense_types (expense_type)
-VALUES ('Secndd staff frm othr org');
+   VALUES ('Professional Fees');
 
 
 INSERT INTO expense_types (expense_type)
-VALUES ('Staff Location/Bleeps');
+   VALUES ('Rates');
 
 
 INSERT INTO expense_types (expense_type)
-VALUES ('Stocks Finished Goods');
+   VALUES ('Secndd staff frm othr org');
 
 
 INSERT INTO expense_types (expense_type)
-VALUES ('Water');
+   VALUES ('Staff Location/Bleeps');
 
 
 INSERT INTO expense_types (expense_type)
-VALUES ('X-Ray Equipment Purchase');
+   VALUES ('Stocks Finished Goods');
+
+
+INSERT INTO expense_types (expense_type)
+   VALUES ('Water');
+
+
+INSERT INTO expense_types (expense_type)
+   VALUES ('X-Ray Equipment Purchase');
 
 
 INSERT INTO expense_areas (expense_area)
-VALUES ('Balance Sheet');
+   VALUES ('Balance Sheet');
 
 
 INSERT INTO expense_areas (expense_area)
-VALUES ('Better Hospital Food');
+   VALUES ('Better Hospital Food');
 
 
 INSERT INTO expense_areas (expense_area)
-VALUES ('Bowel Cancer Screening Centre');
+   VALUES ('Bowel Cancer Screening Centre');
 
 
 INSERT INTO expense_areas (expense_area)
-VALUES ('Cardiology Medics');
+   VALUES ('Cardiology Medics');
 
 
 INSERT INTO expense_areas (expense_area)
-VALUES ('Chief Executive');
+   VALUES ('Chief Executive');
 
 
 INSERT INTO expense_areas (expense_area)
-VALUES ('Contingency');
+   VALUES ('Contingency');
 
 
 INSERT INTO expense_areas (expense_area)
-VALUES ('COO Operational Team');
+   VALUES ('COO Operational Team');
 
 
 INSERT INTO expense_areas (expense_area)
-VALUES ('COVID-19');
+   VALUES ('COVID-19');
 
 
 INSERT INTO expense_areas (expense_area)
-VALUES ('CVI''s - DAF''s 2007-08');
+   VALUES ('CVI''s - DAF''s 2007-08');
 
 
 INSERT INTO expense_areas (expense_area)
-VALUES ('Diabetic Centre');
+   VALUES ('Diabetic Centre');
 
 
 INSERT INTO expense_areas (expense_area)
-VALUES ('Digital Care Record');
+   VALUES ('Digital Care Record');
 
 
 INSERT INTO expense_areas (expense_area)
-VALUES ('Discharge Co-ordination');
+   VALUES ('Discharge Co-ordination');
 
 
 INSERT INTO expense_areas (expense_area)
-VALUES ('Drugs reserve');
+   VALUES ('Drugs reserve');
 
 
 INSERT INTO expense_areas (expense_area)
-VALUES ('Energy NTN');
+   VALUES ('Energy NTN');
 
 
 INSERT INTO expense_areas (expense_area)
-VALUES ('Energy-Rates- No Special');
+   VALUES ('Energy-Rates- No Special');
 
 
 INSERT INTO expense_areas (expense_area)
-VALUES ('Equipt WRH');
+   VALUES ('Equipt WRH');
 
 
 INSERT INTO expense_areas (expense_area)
-VALUES ('Haematology');
+   VALUES ('Haematology');
 
 
 INSERT INTO expense_areas (expense_area)
-VALUES ('ICT Contingency');
+   VALUES ('ICT Contingency');
 
 
 INSERT INTO expense_areas (expense_area)
-VALUES ('ICT Recharges');
+   VALUES ('ICT Recharges');
 
 
 INSERT INTO expense_areas (expense_area)
-VALUES ('Kidderminster Energy');
+   VALUES ('Kidderminster Energy');
 
 
 INSERT INTO expense_areas (expense_area)
-VALUES ('Kings Court');
+   VALUES ('Kings Court');
 
 
 INSERT INTO expense_areas (expense_area)
-VALUES ('Laundry Serv-No Spec');
+   VALUES ('Laundry Serv-No Spec');
 
 
 INSERT INTO expense_areas (expense_area)
-VALUES ('Madel Acute');
+   VALUES ('Madel Acute');
 
 
 INSERT INTO expense_areas (expense_area)
-VALUES ('Managed Print');
+   VALUES ('Managed Print');
 
 
 INSERT INTO expense_areas (expense_area)
-VALUES ('New Hospital Impl Admin');
+   VALUES ('New Hospital Impl Admin');
 
 
 INSERT INTO expense_areas (expense_area)
-VALUES ('Newtown Acute Payments');
+   VALUES ('Newtown Acute Payments');
 
 
 INSERT INTO expense_areas (expense_area)
-VALUES ('Newtown Equipt');
+   VALUES ('Newtown Equipt');
 
 
 INSERT INTO expense_areas (expense_area)
-VALUES ('Oral MaxFac- MedStaff WRH');
+   VALUES ('Oral MaxFac- MedStaff WRH');
 
 
 INSERT INTO expense_areas (expense_area)
-VALUES ('Other Pass Throughs');
+   VALUES ('Other Pass Throughs');
 
 
 INSERT INTO expense_areas (expense_area)
-VALUES ('Overseas Nurses');
+   VALUES ('Overseas Nurses');
 
 
 INSERT INTO expense_areas (expense_area)
-VALUES ('Path General');
+   VALUES ('Path General');
 
 
 INSERT INTO expense_areas (expense_area)
-VALUES ('PFI- Unitary Payments');
+   VALUES ('PFI- Unitary Payments');
 
 
 INSERT INTO expense_areas (expense_area)
-VALUES ('Radiology Countwide');
+   VALUES ('Radiology Countwide');
 
 
 INSERT INTO expense_areas (expense_area)
-VALUES ('Radiology Dept Alex');
+   VALUES ('Radiology Dept Alex');
 
 
 INSERT INTO expense_areas (expense_area)
-VALUES ('Radiology Dept KGH');
+   VALUES ('Radiology Dept KGH');
 
 
 INSERT INTO expense_areas (expense_area)
-VALUES ('Respiratory Medics');
+   VALUES ('Respiratory Medics');
 
 
 INSERT INTO expense_areas (expense_area)
-VALUES ('SLA Split of income');
+   VALUES ('SLA Split of income');
 
 
 INSERT INTO expense_areas (expense_area)
-VALUES ('Software Support and Licences');
+   VALUES ('Software Support and Licences');
 
 
 INSERT INTO expense_areas (expense_area)
-VALUES ('Sterile Services - Alex');
+   VALUES ('Sterile Services - Alex');
 
 
 INSERT INTO expense_areas (expense_area)
-VALUES ('Telephone Serv- Alex');
+   VALUES ('Telephone Serv- Alex');
 
 
 INSERT INTO expense_areas (expense_area)
-VALUES ('Trust Wide Rates');
+   VALUES ('Trust Wide Rates');
 
 
 INSERT INTO expense_areas (expense_area)
-VALUES ('Trustwide');
+   VALUES ('Trustwide');
 
 
 INSERT INTO expense_areas (expense_area)
-VALUES ('WAN');
+   VALUES ('WAN');
 
 
 INSERT INTO expense_areas (expense_area)
-VALUES ('WIFI');
+   VALUES ('WIFI');
 
 
 INSERT INTO expense_areas (expense_area)
-VALUES ('Xerox Contract');
+   VALUES ('Xerox Contract');
 
 
 INSERT INTO suppliers (supplier)
-VALUES ('3D ALUMINIUM PLAS LTD');
+   VALUES ('3D ALUMINIUM PLAS LTD');
 
 
 INSERT INTO suppliers (supplier)
-VALUES ('ADEPT TELECOM');
+   VALUES ('ADEPT TELECOM');
 
 
 INSERT INTO suppliers (supplier)
-VALUES ('ALLIANCE HEALTHCARE DISTRIBUTION LTD');
+   VALUES ('ALLIANCE HEALTHCARE DISTRIBUTION LTD');
 
 
 INSERT INTO suppliers (supplier)
-VALUES ('ALLOGA UK LTD');
+   VALUES ('ALLOGA UK LTD');
 
 
 INSERT INTO suppliers (supplier)
-VALUES ('ALLSCRIPTS HEALTHCARE (IT) UK LTD');
+   VALUES ('ALLSCRIPTS HEALTHCARE (IT) UK LTD');
 
 
 INSERT INTO suppliers (supplier)
-VALUES ('ALTIATECH LTD');
+   VALUES ('ALTIATECH LTD');
 
 
 INSERT INTO suppliers (supplier)
-VALUES ('ARJO UK LTD');
+   VALUES ('ARJO UK LTD');
 
 
 INSERT INTO suppliers (supplier)
-VALUES ('BATH ASU');
+   VALUES ('BATH ASU');
 
 
 INSERT INTO suppliers (supplier)
-VALUES ('BAYER PLC');
+   VALUES ('BAYER PLC');
 
 
 INSERT INTO suppliers (supplier)
-VALUES ('BIOTEST UK LTD');
+   VALUES ('BIOTEST UK LTD');
 
 
 INSERT INTO suppliers (supplier)
-VALUES ('BIRMINGHAM & SOLIHULL MENTAL HEALTH NHS FOUNDATION TRUST');
+   VALUES ('BIRMINGHAM & SOLIHULL MENTAL HEALTH NHS FOUNDATION TRUST');
 
 
 INSERT INTO suppliers (supplier)
-VALUES ('BOXXE LTD');
+   VALUES ('BOXXE LTD');
 
 
 INSERT INTO suppliers (supplier)
-VALUES ('CARE QUALITY COMMISSION');
+   VALUES ('CARE QUALITY COMMISSION');
 
 
 INSERT INTO suppliers (supplier)
-VALUES ('CLINISYS SOLUTIONS LTD');
+   VALUES ('CLINISYS SOLUTIONS LTD');
 
 
 INSERT INTO suppliers (supplier)
-VALUES ('COIF CHARITIES ETHICAL INVESTMENT FUND');
+   VALUES ('COIF CHARITIES ETHICAL INVESTMENT FUND');
 
 
 INSERT INTO suppliers (supplier)
-VALUES ('COMPUTACENTER (UK) LTD');
+   VALUES ('COMPUTACENTER (UK) LTD');
 
 
 INSERT INTO suppliers (supplier)
-VALUES ('COUCH PERRY&WILKES');
+   VALUES ('COUCH PERRY&WILKES');
 
 
 INSERT INTO suppliers (supplier)
-VALUES ('DD PORTER LTD');
+   VALUES ('DD PORTER LTD');
 
 
 INSERT INTO suppliers (supplier)
-VALUES ('E MANTON LTD');
+   VALUES ('E MANTON LTD');
 
 
 INSERT INTO suppliers (supplier)
-VALUES ('FRESENIUS MEDICAL CARE UK LTD');
+   VALUES ('FRESENIUS MEDICAL CARE UK LTD');
 
 
 INSERT INTO suppliers (supplier)
-VALUES ('GE MEDICAL SYSTEMS LTD');
+   VALUES ('GE MEDICAL SYSTEMS LTD');
 
 
 INSERT INTO suppliers (supplier)
-VALUES ('HELICON HEALTH LTD');
+   VALUES ('HELICON HEALTH LTD');
 
 
 INSERT INTO suppliers (supplier)
-VALUES ('HEREFORDSHIRE & WORCESTERSHIRE HEALTH & CARE NHS TRUST');
+   VALUES ('HEREFORDSHIRE & WORCESTERSHIRE HEALTH & CARE NHS TRUST');
 
 
 INSERT INTO suppliers (supplier)
-VALUES ('INLAND REVENUE CIS');
+   VALUES ('INLAND REVENUE CIS');
 
 
 INSERT INTO suppliers (supplier)
-VALUES ('INSIGNIA MEDICAL SYSTEMS LTD');
+   VALUES ('INSIGNIA MEDICAL SYSTEMS LTD');
 
 
 INSERT INTO suppliers (supplier)
-VALUES ('INTERCLASS PLC');
+   VALUES ('INTERCLASS PLC');
 
 
 INSERT INTO suppliers (supplier)
-VALUES ('JMG ROOFING LTD');
+   VALUES ('JMG ROOFING LTD');
 
 
 INSERT INTO suppliers (supplier)
-VALUES ('KARL STORZ ENDOSCOPY UK LTD');
+   VALUES ('KARL STORZ ENDOSCOPY UK LTD');
 
 
 INSERT INTO suppliers (supplier)
-VALUES ('LYNTON TRAILERS (UK) LTD');
+   VALUES ('LYNTON TRAILERS (UK) LTD');
 
 
 INSERT INTO suppliers (supplier)
-VALUES ('MAQUET LTD');
+   VALUES ('MAQUET LTD');
 
 
 INSERT INTO suppliers (supplier)
-VALUES ('MEDICA REPORTING LTD');
+   VALUES ('MEDICA REPORTING LTD');
 
 
 INSERT INTO suppliers (supplier)
-VALUES ('MEDTRONIC LTD');
+   VALUES ('MEDTRONIC LTD');
 
 
 INSERT INTO suppliers (supplier)
-VALUES ('MIDWEST ELECTRICAL SERVICES LTD');
+   VALUES ('MIDWEST ELECTRICAL SERVICES LTD');
 
 
 INSERT INTO suppliers (supplier)
-VALUES ('NHS BLOOD & TRANSPLANT');
+   VALUES ('NHS BLOOD & TRANSPLANT');
 
 
 INSERT INTO suppliers (supplier)
-VALUES ('NHS BUSINESS SERVICES AUTHORITY');
+   VALUES ('NHS BUSINESS SERVICES AUTHORITY');
 
 
 INSERT INTO suppliers (supplier)
-VALUES ('NHS HEREFORDSHIRE AND WORCESTERSHIRE CCG');
+   VALUES ('NHS HEREFORDSHIRE AND WORCESTERSHIRE CCG');
 
 
 INSERT INTO suppliers (supplier)
-VALUES ('NHS PROFESSIONALS LTD');
+   VALUES ('NHS PROFESSIONALS LTD');
 
 
 INSERT INTO suppliers (supplier)
-VALUES ('NOVARTIS PHARMACEUTICALS UK LTD');
+   VALUES ('NOVARTIS PHARMACEUTICALS UK LTD');
 
 
 INSERT INTO suppliers (supplier)
-VALUES ('OLYMPUS KEYMED');
+   VALUES ('OLYMPUS KEYMED');
 
 
 INSERT INTO suppliers (supplier)
-VALUES ('OMNICELL LTD');
+   VALUES ('OMNICELL LTD');
 
 
 INSERT INTO suppliers (supplier)
-VALUES ('P2G MANAGEMENT LTD');
+   VALUES ('P2G MANAGEMENT LTD');
 
 
 INSERT INTO suppliers (supplier)
-VALUES ('PICK EVERARD');
+   VALUES ('PICK EVERARD');
 
 
 INSERT INTO suppliers (supplier)
-VALUES ('PINNEGAR HAYWARD DESIGN');
+   VALUES ('PINNEGAR HAYWARD DESIGN');
 
 
 INSERT INTO suppliers (supplier)
-VALUES ('REDDITCH BOROUGH COUNCIL');
+   VALUES ('REDDITCH BOROUGH COUNCIL');
 
 
 INSERT INTO suppliers (supplier)
-VALUES ('REGIS PROJECT MANAGEMENT LTD');
+   VALUES ('REGIS PROJECT MANAGEMENT LTD');
 
 
 INSERT INTO suppliers (supplier)
-VALUES ('ROCHE PRODUCTS LTD');
+   VALUES ('ROCHE PRODUCTS LTD');
 
 
 INSERT INTO suppliers (supplier)
-VALUES ('SALFORD ROYAL HOSPITALS NHS FOUNDATION TRUST');
+   VALUES ('SALFORD ROYAL HOSPITALS NHS FOUNDATION TRUST');
 
 
 INSERT INTO suppliers (supplier)
-VALUES ('SIEMENS HEALTHCARE LTD');
+   VALUES ('SIEMENS HEALTHCARE LTD');
 
 
 INSERT INTO suppliers (supplier)
-VALUES ('SOFTCAT PLC');
+   VALUES ('SOFTCAT PLC');
 
 
 INSERT INTO suppliers (supplier)
-VALUES ('SPELLER METCALFE MALVERN LTD');
+   VALUES ('SPELLER METCALFE MALVERN LTD');
 
 
 INSERT INTO suppliers (supplier)
-VALUES ('ST HELENS & KNOWSLEY HOSPITALS NHS TRUST');
+   VALUES ('ST HELENS & KNOWSLEY HOSPITALS NHS TRUST');
 
 
 INSERT INTO suppliers (supplier)
-VALUES ('STRIDE TREGLOWN LTD');
+   VALUES ('STRIDE TREGLOWN LTD');
 
 
 INSERT INTO suppliers (supplier)
-VALUES ('SUPPLY CHAIN COORDINATION LIMITED');
+   VALUES ('SUPPLY CHAIN COORDINATION LIMITED');
 
 
 INSERT INTO suppliers (supplier)
-VALUES ('SYNERGY HEALTH MANAGED SERVICES LTD');
+   VALUES ('SYNERGY HEALTH MANAGED SERVICES LTD');
 
 
 INSERT INTO suppliers (supplier)
-VALUES ('TRAK SYSTEMS LTD');
+   VALUES ('TRAK SYSTEMS LTD');
 
 
 INSERT INTO suppliers (supplier)
-VALUES ('TRANSFORM HOSPITAL GROUP LTD');
+   VALUES ('TRANSFORM HOSPITAL GROUP LTD');
 
 
 INSERT INTO suppliers (supplier)
-VALUES ('UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST');
+   VALUES ('UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST');
 
 
 INSERT INTO suppliers (supplier)
-VALUES ('WATER PLUS LTD');
+   VALUES ('WATER PLUS LTD');
 
 
 INSERT INTO suppliers (supplier)
-VALUES ('WILLIAM GOUGH & SONS');
+   VALUES ('WILLIAM GOUGH & SONS');
 
 
 INSERT INTO suppliers (supplier)
-VALUES ('WORCESTER CITY COUNCIL');
+   VALUES ('WORCESTER CITY COUNCIL');
 
 
 INSERT INTO suppliers (supplier)
-VALUES ('WORCESTERSHIRE HOSPITAL SPC PLC');
+   VALUES ('WORCESTERSHIRE HOSPITAL SPC PLC');
 
 
 INSERT INTO suppliers (supplier)
-VALUES ('WYE VALLEY NHS TRUST');
+   VALUES ('WYE VALLEY NHS TRUST');
 
 
 INSERT INTO suppliers (supplier)
-VALUES ('WYRE FOREST DISTRICT COUNCIL');
+   VALUES ('WYRE FOREST DISTRICT COUNCIL');
 
 
 INSERT INTO suppliers (supplier)
-VALUES ('XEROX (UK) LTD');
+   VALUES ('XEROX (UK) LTD');
 
 
 INSERT INTO suppliers (supplier)
-VALUES ('XOGRAPH HEALTHCARE LTD');
+   VALUES ('XOGRAPH HEALTHCARE LTD');
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (26,
+   VALUES (26,
         1,
         40,
         '2021-03-01',
@@ -636,7 +640,7 @@ VALUES (26,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (19,
+   VALUES (19,
         3,
         62,
         '2021-03-01',
@@ -647,7 +651,7 @@ VALUES (19,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (19,
+   VALUES (19,
         3,
         62,
         '2021-03-01',
@@ -658,7 +662,7 @@ VALUES (19,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (20,
+   VALUES (20,
         1,
         24,
         '2021-03-01',
@@ -669,7 +673,7 @@ VALUES (20,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (28,
+   VALUES (28,
         1,
         24,
         '2021-03-01',
@@ -680,7 +684,7 @@ VALUES (28,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (33,
+   VALUES (33,
         1,
         35,
         '2021-03-01',
@@ -691,7 +695,7 @@ VALUES (33,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         20,
         '2021-03-01',
@@ -702,7 +706,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (29,
+   VALUES (29,
         1,
         53,
         '2021-03-01',
@@ -713,7 +717,7 @@ VALUES (29,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (29,
+   VALUES (29,
         1,
         53,
         '2021-03-01',
@@ -724,7 +728,7 @@ VALUES (29,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (29,
+   VALUES (29,
         1,
         53,
         '2021-03-01',
@@ -735,7 +739,7 @@ VALUES (29,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (29,
+   VALUES (29,
         1,
         53,
         '2021-03-01',
@@ -746,7 +750,7 @@ VALUES (29,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (29,
+   VALUES (29,
         1,
         53,
         '2021-03-01',
@@ -757,7 +761,7 @@ VALUES (29,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (29,
+   VALUES (29,
         1,
         53,
         '2021-03-01',
@@ -768,7 +772,7 @@ VALUES (29,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (29,
+   VALUES (29,
         1,
         53,
         '2021-03-01',
@@ -779,7 +783,7 @@ VALUES (29,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (29,
+   VALUES (29,
         1,
         53,
         '2021-03-01',
@@ -790,7 +794,7 @@ VALUES (29,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (29,
+   VALUES (29,
         1,
         53,
         '2021-03-01',
@@ -801,7 +805,7 @@ VALUES (29,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (29,
+   VALUES (29,
         1,
         53,
         '2021-03-01',
@@ -812,7 +816,7 @@ VALUES (29,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (29,
+   VALUES (29,
         1,
         53,
         '2021-03-01',
@@ -823,7 +827,7 @@ VALUES (29,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (29,
+   VALUES (29,
         1,
         53,
         '2021-03-01',
@@ -834,7 +838,7 @@ VALUES (29,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (29,
+   VALUES (29,
         1,
         53,
         '2021-03-01',
@@ -845,7 +849,7 @@ VALUES (29,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         19,
         '2021-03-01',
@@ -856,7 +860,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         19,
         '2021-03-01',
@@ -867,7 +871,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         19,
         '2021-03-01',
@@ -878,7 +882,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         19,
         '2021-03-01',
@@ -889,7 +893,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         26,
         '2021-03-01',
@@ -900,7 +904,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         26,
         '2021-03-01',
@@ -911,7 +915,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         26,
         '2021-03-01',
@@ -922,7 +926,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         26,
         '2021-03-01',
@@ -933,7 +937,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         26,
         '2021-03-01',
@@ -944,7 +948,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (6,
+   VALUES (6,
         29,
         61,
         '2021-03-01',
@@ -955,7 +959,7 @@ VALUES (6,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (26,
+   VALUES (26,
         1,
         61,
         '2021-03-01',
@@ -966,7 +970,7 @@ VALUES (26,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         61,
         '2021-03-01',
@@ -977,7 +981,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (4,
+   VALUES (4,
         9,
         61,
         '2021-03-01',
@@ -988,7 +992,7 @@ VALUES (4,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (6,
+   VALUES (6,
         29,
         61,
         '2021-03-01',
@@ -999,7 +1003,7 @@ VALUES (6,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (13,
+   VALUES (13,
         32,
         61,
         '2021-03-01',
@@ -1010,7 +1014,7 @@ VALUES (13,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (4,
+   VALUES (4,
         2,
         61,
         '2021-03-01',
@@ -1021,7 +1025,7 @@ VALUES (4,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (10,
+   VALUES (10,
         26,
         61,
         '2021-03-01',
@@ -1032,7 +1036,7 @@ VALUES (10,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (18,
+   VALUES (18,
         32,
         61,
         '2021-03-01',
@@ -1043,7 +1047,7 @@ VALUES (18,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (12,
+   VALUES (12,
         32,
         61,
         '2021-03-01',
@@ -1054,7 +1058,7 @@ VALUES (12,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (12,
+   VALUES (12,
         32,
         61,
         '2021-03-01',
@@ -1065,7 +1069,7 @@ VALUES (12,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (12,
+   VALUES (12,
         14,
         61,
         '2021-03-01',
@@ -1076,7 +1080,7 @@ VALUES (12,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (12,
+   VALUES (12,
         20,
         61,
         '2021-03-01',
@@ -1087,7 +1091,7 @@ VALUES (12,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (12,
+   VALUES (12,
         15,
         61,
         '2021-03-01',
@@ -1098,7 +1102,7 @@ VALUES (12,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (12,
+   VALUES (12,
         20,
         61,
         '2021-03-01',
@@ -1109,7 +1113,7 @@ VALUES (12,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (12,
+   VALUES (12,
         15,
         61,
         '2021-03-01',
@@ -1120,7 +1124,7 @@ VALUES (12,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (4,
+   VALUES (4,
         32,
         61,
         '2021-03-01',
@@ -1131,7 +1135,7 @@ VALUES (4,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (4,
+   VALUES (4,
         32,
         61,
         '2021-03-01',
@@ -1142,7 +1146,7 @@ VALUES (4,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (6,
+   VALUES (6,
         29,
         61,
         '2021-03-01',
@@ -1153,7 +1157,7 @@ VALUES (6,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (6,
+   VALUES (6,
         29,
         61,
         '2021-03-01',
@@ -1164,7 +1168,7 @@ VALUES (6,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (4,
+   VALUES (4,
         2,
         61,
         '2021-03-01',
@@ -1175,7 +1179,7 @@ VALUES (4,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (6,
+   VALUES (6,
         29,
         61,
         '2021-03-01',
@@ -1186,7 +1190,7 @@ VALUES (6,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (6,
+   VALUES (6,
         29,
         61,
         '2021-03-01',
@@ -1197,7 +1201,7 @@ VALUES (6,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (10,
+   VALUES (10,
         32,
         61,
         '2021-03-01',
@@ -1208,7 +1212,7 @@ VALUES (10,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (23,
+   VALUES (23,
         16,
         61,
         '2021-03-01',
@@ -1219,7 +1223,7 @@ VALUES (23,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (4,
+   VALUES (4,
         9,
         61,
         '2021-03-01',
@@ -1230,7 +1234,7 @@ VALUES (4,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (24,
+   VALUES (24,
         8,
         61,
         '2021-03-01',
@@ -1241,7 +1245,7 @@ VALUES (24,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (21,
+   VALUES (21,
         17,
         61,
         '2021-03-01',
@@ -1252,7 +1256,7 @@ VALUES (21,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (5,
+   VALUES (5,
         27,
         61,
         '2021-03-01',
@@ -1263,7 +1267,7 @@ VALUES (5,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (23,
+   VALUES (23,
         16,
         61,
         '2021-03-01',
@@ -1274,7 +1278,7 @@ VALUES (23,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (26,
+   VALUES (26,
         1,
         61,
         '2021-03-01',
@@ -1285,7 +1289,7 @@ VALUES (26,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (12,
+   VALUES (12,
         32,
         61,
         '2021-03-01',
@@ -1296,7 +1300,7 @@ VALUES (12,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (18,
+   VALUES (18,
         32,
         61,
         '2021-03-01',
@@ -1307,7 +1311,7 @@ VALUES (18,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (12,
+   VALUES (12,
         14,
         61,
         '2021-03-01',
@@ -1318,7 +1322,7 @@ VALUES (12,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (4,
+   VALUES (4,
         2,
         61,
         '2021-03-01',
@@ -1329,7 +1333,7 @@ VALUES (4,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (10,
+   VALUES (10,
         26,
         61,
         '2021-03-01',
@@ -1340,7 +1344,7 @@ VALUES (10,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (13,
+   VALUES (13,
         32,
         61,
         '2021-03-01',
@@ -1351,7 +1355,7 @@ VALUES (13,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (24,
+   VALUES (24,
         8,
         61,
         '2021-03-01',
@@ -1362,7 +1366,7 @@ VALUES (24,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (6,
+   VALUES (6,
         29,
         61,
         '2021-03-01',
@@ -1373,7 +1377,7 @@ VALUES (6,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (24,
+   VALUES (24,
         8,
         61,
         '2021-03-01',
@@ -1384,7 +1388,7 @@ VALUES (24,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         61,
         '2021-03-01',
@@ -1395,7 +1399,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (24,
+   VALUES (24,
         8,
         61,
         '2021-03-01',
@@ -1406,7 +1410,7 @@ VALUES (24,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (24,
+   VALUES (24,
         8,
         61,
         '2021-03-01',
@@ -1417,7 +1421,7 @@ VALUES (24,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         61,
         '2021-03-01',
@@ -1428,7 +1432,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (24,
+   VALUES (24,
         8,
         61,
         '2021-03-01',
@@ -1439,7 +1443,7 @@ VALUES (24,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (5,
+   VALUES (5,
         25,
         61,
         '2021-03-01',
@@ -1450,7 +1454,7 @@ VALUES (5,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (24,
+   VALUES (24,
         8,
         61,
         '2021-03-01',
@@ -1461,7 +1465,7 @@ VALUES (24,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (26,
+   VALUES (26,
         1,
         65,
         '2021-03-01',
@@ -1472,7 +1476,7 @@ VALUES (26,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (26,
+   VALUES (26,
         1,
         65,
         '2021-03-01',
@@ -1483,7 +1487,7 @@ VALUES (26,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (24,
+   VALUES (24,
         10,
         32,
         '2021-03-01',
@@ -1494,7 +1498,7 @@ VALUES (24,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         18,
         '2021-03-01',
@@ -1505,7 +1509,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (34,
+   VALUES (34,
         1,
         15,
         '2021-03-01',
@@ -1516,7 +1520,7 @@ VALUES (34,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (41,
+   VALUES (41,
         33,
         31,
         '2021-03-01',
@@ -1527,7 +1531,7 @@ VALUES (41,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (41,
+   VALUES (41,
         33,
         31,
         '2021-03-01',
@@ -1538,7 +1542,7 @@ VALUES (41,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         43,
         '2021-03-01',
@@ -1549,7 +1553,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (13,
+   VALUES (13,
         22,
         54,
         '2021-03-01',
@@ -1560,7 +1564,7 @@ VALUES (13,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (25,
+   VALUES (25,
         34,
         53,
         '2021-03-01',
@@ -1571,7 +1575,7 @@ VALUES (25,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (25,
+   VALUES (25,
         35,
         53,
         '2021-03-01',
@@ -1582,7 +1586,7 @@ VALUES (25,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         59,
         '2021-03-01',
@@ -1593,7 +1597,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (34,
+   VALUES (34,
         1,
         43,
         '2021-03-01',
@@ -1604,7 +1608,7 @@ VALUES (34,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         52,
         '2021-03-01',
@@ -1615,7 +1619,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (36,
+   VALUES (36,
         41,
         44,
         '2021-03-01',
@@ -1626,7 +1630,7 @@ VALUES (36,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (17,
+   VALUES (17,
         39,
         55,
         '2021-03-01',
@@ -1637,7 +1641,7 @@ VALUES (17,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (17,
+   VALUES (17,
         39,
         55,
         '2021-03-01',
@@ -1648,7 +1652,7 @@ VALUES (17,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         33,
         '2021-03-01',
@@ -1659,7 +1663,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         33,
         '2021-03-01',
@@ -1670,7 +1674,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         33,
         '2021-03-01',
@@ -1681,7 +1685,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         33,
         '2021-03-01',
@@ -1692,7 +1696,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (26,
+   VALUES (26,
         1,
         30,
         '2021-03-01',
@@ -1703,7 +1707,7 @@ VALUES (26,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (26,
+   VALUES (26,
         1,
         29,
         '2021-03-01',
@@ -1714,7 +1718,7 @@ VALUES (26,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (26,
+   VALUES (26,
         1,
         29,
         '2021-03-01',
@@ -1725,7 +1729,7 @@ VALUES (26,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         33,
         '2021-03-01',
@@ -1736,7 +1740,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         16,
         '2021-03-01',
@@ -1747,7 +1751,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         16,
         '2021-03-01',
@@ -1758,7 +1762,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         16,
         '2021-03-01',
@@ -1769,7 +1773,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         16,
         '2021-03-01',
@@ -1780,7 +1784,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         16,
         '2021-03-01',
@@ -1791,7 +1795,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (7,
+   VALUES (7,
         44,
         16,
         '2021-03-01',
@@ -1802,7 +1806,7 @@ VALUES (7,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (7,
+   VALUES (7,
         44,
         16,
         '2021-03-01',
@@ -1813,7 +1817,7 @@ VALUES (7,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         16,
         '2021-03-01',
@@ -1824,7 +1828,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (8,
+   VALUES (8,
         44,
         5,
         '2021-03-01',
@@ -1835,7 +1839,7 @@ VALUES (8,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (8,
+   VALUES (8,
         11,
         5,
         '2021-03-01',
@@ -1846,7 +1850,7 @@ VALUES (8,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (26,
+   VALUES (26,
         1,
         28,
         '2021-03-01',
@@ -1857,7 +1861,7 @@ VALUES (26,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (26,
+   VALUES (26,
         1,
         28,
         '2021-03-01',
@@ -1868,7 +1872,7 @@ VALUES (26,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (26,
+   VALUES (26,
         1,
         65,
         '2021-03-01',
@@ -1879,7 +1883,7 @@ VALUES (26,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (26,
+   VALUES (26,
         1,
         65,
         '2021-03-01',
@@ -1890,7 +1894,7 @@ VALUES (26,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (22,
+   VALUES (22,
         21,
         60,
         '2021-03-01',
@@ -1901,7 +1905,7 @@ VALUES (22,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (39,
+   VALUES (39,
         1,
         9,
         '2021-03-01',
@@ -1912,7 +1916,7 @@ VALUES (39,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (39,
+   VALUES (39,
         1,
         9,
         '2021-03-01',
@@ -1923,7 +1927,7 @@ VALUES (39,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (39,
+   VALUES (39,
         1,
         9,
         '2021-03-01',
@@ -1934,7 +1938,7 @@ VALUES (39,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (39,
+   VALUES (39,
         1,
         9,
         '2021-03-01',
@@ -1945,7 +1949,7 @@ VALUES (39,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (39,
+   VALUES (39,
         1,
         9,
         '2021-03-01',
@@ -1956,7 +1960,7 @@ VALUES (39,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (39,
+   VALUES (39,
         1,
         9,
         '2021-03-01',
@@ -1967,7 +1971,7 @@ VALUES (39,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (39,
+   VALUES (39,
         1,
         9,
         '2021-03-01',
@@ -1978,7 +1982,7 @@ VALUES (39,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (8,
+   VALUES (8,
         24,
         64,
         '2021-03-01',
@@ -1989,7 +1993,7 @@ VALUES (8,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (8,
+   VALUES (8,
         45,
         64,
         '2021-03-01',
@@ -2000,7 +2004,7 @@ VALUES (8,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (8,
+   VALUES (8,
         45,
         64,
         '2021-03-01',
@@ -2011,7 +2015,7 @@ VALUES (8,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (39,
+   VALUES (39,
         1,
         38,
         '2021-03-01',
@@ -2022,7 +2026,7 @@ VALUES (39,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         33,
         '2021-03-01',
@@ -2033,7 +2037,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (26,
+   VALUES (26,
         1,
         39,
         '2021-03-01',
@@ -2044,7 +2048,7 @@ VALUES (26,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (26,
+   VALUES (26,
         1,
         39,
         '2021-03-01',
@@ -2055,7 +2059,7 @@ VALUES (26,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (26,
+   VALUES (26,
         1,
         39,
         '2021-03-01',
@@ -2066,7 +2070,7 @@ VALUES (26,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         50,
         '2021-03-01',
@@ -2077,7 +2081,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         50,
         '2021-03-01',
@@ -2088,7 +2092,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         50,
         '2021-03-01',
@@ -2099,7 +2103,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         50,
         '2021-03-01',
@@ -2110,7 +2114,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         50,
         '2021-03-01',
@@ -2121,7 +2125,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         50,
         '2021-03-01',
@@ -2132,7 +2136,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         50,
         '2021-03-01',
@@ -2143,7 +2147,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         50,
         '2021-03-01',
@@ -2154,7 +2158,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         50,
         '2021-03-01',
@@ -2165,7 +2169,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         50,
         '2021-03-01',
@@ -2176,7 +2180,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (39,
+   VALUES (39,
         1,
         3,
         '2021-03-01',
@@ -2187,7 +2191,7 @@ VALUES (39,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (39,
+   VALUES (39,
         1,
         3,
         '2021-03-01',
@@ -2198,7 +2202,7 @@ VALUES (39,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (39,
+   VALUES (39,
         1,
         3,
         '2021-03-01',
@@ -2209,7 +2213,7 @@ VALUES (39,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (39,
+   VALUES (39,
         1,
         3,
         '2021-03-01',
@@ -2220,7 +2224,7 @@ VALUES (39,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (39,
+   VALUES (39,
         1,
         3,
         '2021-03-01',
@@ -2231,7 +2235,7 @@ VALUES (39,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (31,
+   VALUES (31,
         13,
         37,
         '2021-03-01',
@@ -2242,7 +2246,7 @@ VALUES (31,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (2,
+   VALUES (2,
         6,
         37,
         '2021-03-01',
@@ -2253,7 +2257,7 @@ VALUES (2,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (2,
+   VALUES (2,
         6,
         37,
         '2021-03-01',
@@ -2264,7 +2268,7 @@ VALUES (2,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (31,
+   VALUES (31,
         6,
         37,
         '2021-03-01',
@@ -2275,7 +2279,7 @@ VALUES (31,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (31,
+   VALUES (31,
         6,
         37,
         '2021-03-01',
@@ -2286,7 +2290,7 @@ VALUES (31,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (31,
+   VALUES (31,
         13,
         37,
         '2021-03-01',
@@ -2297,7 +2301,7 @@ VALUES (31,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (2,
+   VALUES (2,
         6,
         37,
         '2021-03-01',
@@ -2308,7 +2312,7 @@ VALUES (2,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (2,
+   VALUES (2,
         6,
         37,
         '2021-03-01',
@@ -2319,7 +2323,7 @@ VALUES (2,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (31,
+   VALUES (31,
         6,
         37,
         '2021-03-01',
@@ -2330,7 +2334,7 @@ VALUES (31,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (31,
+   VALUES (31,
         6,
         37,
         '2021-03-01',
@@ -2341,7 +2345,7 @@ VALUES (31,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (2,
+   VALUES (2,
         6,
         37,
         '2021-03-01',
@@ -2352,7 +2356,7 @@ VALUES (2,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (2,
+   VALUES (2,
         6,
         37,
         '2021-03-01',
@@ -2363,7 +2367,7 @@ VALUES (2,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (31,
+   VALUES (31,
         13,
         37,
         '2021-03-01',
@@ -2374,7 +2378,7 @@ VALUES (31,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (27,
+   VALUES (27,
         30,
         37,
         '2021-03-01',
@@ -2385,7 +2389,7 @@ VALUES (27,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (2,
+   VALUES (2,
         6,
         37,
         '2021-03-01',
@@ -2396,7 +2400,7 @@ VALUES (2,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (2,
+   VALUES (2,
         6,
         37,
         '2021-03-01',
@@ -2407,7 +2411,7 @@ VALUES (2,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (31,
+   VALUES (31,
         6,
         37,
         '2021-03-01',
@@ -2418,7 +2422,7 @@ VALUES (31,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (31,
+   VALUES (31,
         13,
         37,
         '2021-03-01',
@@ -2429,7 +2433,7 @@ VALUES (31,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (31,
+   VALUES (31,
         6,
         37,
         '2021-03-01',
@@ -2440,7 +2444,7 @@ VALUES (31,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (2,
+   VALUES (2,
         6,
         37,
         '2021-03-01',
@@ -2451,7 +2455,7 @@ VALUES (2,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (2,
+   VALUES (2,
         6,
         37,
         '2021-03-01',
@@ -2462,7 +2466,7 @@ VALUES (2,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (31,
+   VALUES (31,
         6,
         37,
         '2021-03-01',
@@ -2473,7 +2477,7 @@ VALUES (31,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (31,
+   VALUES (31,
         6,
         37,
         '2021-03-01',
@@ -2484,7 +2488,7 @@ VALUES (31,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (31,
+   VALUES (31,
         13,
         37,
         '2021-03-01',
@@ -2495,7 +2499,7 @@ VALUES (31,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (2,
+   VALUES (2,
         6,
         37,
         '2021-03-01',
@@ -2506,7 +2510,7 @@ VALUES (2,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (2,
+   VALUES (2,
         6,
         37,
         '2021-03-01',
@@ -2517,7 +2521,7 @@ VALUES (2,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (2,
+   VALUES (2,
         6,
         37,
         '2021-03-01',
@@ -2528,7 +2532,7 @@ VALUES (2,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (31,
+   VALUES (31,
         6,
         37,
         '2021-03-01',
@@ -2539,7 +2543,7 @@ VALUES (31,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (31,
+   VALUES (31,
         6,
         37,
         '2021-03-01',
@@ -2550,7 +2554,7 @@ VALUES (31,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (2,
+   VALUES (2,
         6,
         37,
         '2021-03-01',
@@ -2561,7 +2565,7 @@ VALUES (2,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (26,
+   VALUES (26,
         1,
         12,
         '2021-03-01',
@@ -2572,7 +2576,7 @@ VALUES (26,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (26,
+   VALUES (26,
         1,
         12,
         '2021-03-01',
@@ -2583,7 +2587,7 @@ VALUES (26,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (26,
+   VALUES (26,
         1,
         12,
         '2021-03-01',
@@ -2594,7 +2598,7 @@ VALUES (26,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (8,
+   VALUES (8,
         31,
         14,
         '2021-03-01',
@@ -2605,7 +2609,7 @@ VALUES (8,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (8,
+   VALUES (8,
         31,
         14,
         '2021-03-01',
@@ -2616,7 +2620,7 @@ VALUES (8,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (8,
+   VALUES (8,
         31,
         14,
         '2021-03-01',
@@ -2627,7 +2631,7 @@ VALUES (8,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (8,
+   VALUES (8,
         31,
         14,
         '2021-03-01',
@@ -2638,7 +2642,7 @@ VALUES (8,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         17,
         '2021-03-01',
@@ -2649,7 +2653,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (19,
+   VALUES (19,
         28,
         57,
         '2021-03-01',
@@ -2660,7 +2664,7 @@ VALUES (19,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (35,
+   VALUES (35,
         25,
         41,
         '2021-03-01',
@@ -2671,7 +2675,7 @@ VALUES (35,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         47,
         '2021-03-01',
@@ -2682,7 +2686,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (39,
+   VALUES (39,
         1,
         4,
         '2021-03-01',
@@ -2693,7 +2697,7 @@ VALUES (39,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (39,
+   VALUES (39,
         1,
         8,
         '2021-03-01',
@@ -2704,7 +2708,7 @@ VALUES (39,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (39,
+   VALUES (39,
         1,
         8,
         '2021-03-01',
@@ -2715,7 +2719,7 @@ VALUES (39,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (39,
+   VALUES (39,
         1,
         8,
         '2021-03-01',
@@ -2726,7 +2730,7 @@ VALUES (39,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (39,
+   VALUES (39,
         1,
         8,
         '2021-03-01',
@@ -2737,7 +2741,7 @@ VALUES (39,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (40,
+   VALUES (40,
         14,
         58,
         '2021-03-01',
@@ -2748,7 +2752,7 @@ VALUES (40,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (40,
+   VALUES (40,
         14,
         58,
         '2021-03-01',
@@ -2759,7 +2763,7 @@ VALUES (40,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (9,
+   VALUES (9,
         42,
         23,
         '2021-03-01',
@@ -2770,7 +2774,7 @@ VALUES (9,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (30,
+   VALUES (30,
         12,
         23,
         '2021-03-01',
@@ -2781,7 +2785,7 @@ VALUES (30,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (9,
+   VALUES (9,
         37,
         23,
         '2021-03-01',
@@ -2792,7 +2796,7 @@ VALUES (9,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (9,
+   VALUES (9,
         37,
         23,
         '2021-03-01',
@@ -2803,7 +2807,7 @@ VALUES (9,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (30,
+   VALUES (30,
         12,
         23,
         '2021-03-01',
@@ -2814,7 +2818,7 @@ VALUES (30,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (39,
+   VALUES (39,
         1,
         23,
         '2021-03-01',
@@ -2825,7 +2829,7 @@ VALUES (39,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (9,
+   VALUES (9,
         37,
         23,
         '2021-03-01',
@@ -2836,7 +2840,7 @@ VALUES (9,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (30,
+   VALUES (30,
         12,
         23,
         '2021-03-01',
@@ -2847,7 +2851,7 @@ VALUES (30,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         33,
         '2021-04-01',
@@ -2858,7 +2862,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (29,
+   VALUES (29,
         1,
         53,
         '2021-04-01',
@@ -2869,7 +2873,7 @@ VALUES (29,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (26,
+   VALUES (26,
         1,
         21,
         '2021-04-01',
@@ -2880,7 +2884,7 @@ VALUES (26,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (26,
+   VALUES (26,
         1,
         21,
         '2021-04-01',
@@ -2891,7 +2895,7 @@ VALUES (26,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (32,
+   VALUES (32,
         33,
         25,
         '2021-04-01',
@@ -2902,7 +2906,7 @@ VALUES (32,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (8,
+   VALUES (8,
         18,
         6,
         '2021-04-01',
@@ -2913,7 +2917,7 @@ VALUES (8,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (2,
+   VALUES (2,
         6,
         37,
         '2021-04-01',
@@ -2924,7 +2928,7 @@ VALUES (2,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (3,
+   VALUES (3,
         8,
         7,
         '2021-04-01',
@@ -2935,7 +2939,7 @@ VALUES (3,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (7,
+   VALUES (7,
         44,
         16,
         '2021-04-01',
@@ -2946,7 +2950,7 @@ VALUES (7,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (14,
+   VALUES (14,
         25,
         45,
         '2021-04-01',
@@ -2957,7 +2961,7 @@ VALUES (14,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (29,
+   VALUES (29,
         1,
         53,
         '2021-04-01',
@@ -2968,7 +2972,7 @@ VALUES (29,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (5,
+   VALUES (5,
         8,
         61,
         '2021-04-01',
@@ -2979,7 +2983,7 @@ VALUES (5,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         17,
         '2021-04-01',
@@ -2990,7 +2994,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (31,
+   VALUES (31,
         6,
         37,
         '2021-04-01',
@@ -3001,7 +3005,7 @@ VALUES (31,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (39,
+   VALUES (39,
         1,
         38,
         '2021-04-01',
@@ -3012,7 +3016,7 @@ VALUES (39,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (35,
+   VALUES (35,
         11,
         16,
         '2021-04-01',
@@ -3023,7 +3027,7 @@ VALUES (35,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (29,
+   VALUES (29,
         1,
         53,
         '2021-04-01',
@@ -3034,7 +3038,7 @@ VALUES (29,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (31,
+   VALUES (31,
         6,
         37,
         '2021-04-01',
@@ -3045,7 +3049,7 @@ VALUES (31,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         16,
         '2021-04-01',
@@ -3056,7 +3060,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (14,
+   VALUES (14,
         25,
         45,
         '2021-04-01',
@@ -3067,7 +3071,7 @@ VALUES (14,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         16,
         '2021-04-01',
@@ -3078,7 +3082,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (13,
+   VALUES (13,
         22,
         54,
         '2021-04-01',
@@ -3089,7 +3093,7 @@ VALUES (13,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (38,
+   VALUES (38,
         40,
         49,
         '2021-04-01',
@@ -3100,7 +3104,7 @@ VALUES (38,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (39,
+   VALUES (39,
         1,
         3,
         '2021-04-01',
@@ -3111,7 +3115,7 @@ VALUES (39,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (39,
+   VALUES (39,
         1,
         3,
         '2021-04-01',
@@ -3122,7 +3126,7 @@ VALUES (39,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (2,
+   VALUES (2,
         13,
         37,
         '2021-04-01',
@@ -3133,7 +3137,7 @@ VALUES (2,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (38,
+   VALUES (38,
         40,
         49,
         '2021-04-01',
@@ -3144,7 +3148,7 @@ VALUES (38,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         18,
         '2021-04-01',
@@ -3155,7 +3159,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         49,
         '2021-04-01',
@@ -3166,7 +3170,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (8,
+   VALUES (8,
         44,
         16,
         '2021-04-01',
@@ -3177,7 +3181,7 @@ VALUES (8,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         22,
         '2021-04-01',
@@ -3188,7 +3192,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         16,
         '2021-04-01',
@@ -3199,7 +3203,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (39,
+   VALUES (39,
         1,
         8,
         '2021-04-01',
@@ -3210,7 +3214,7 @@ VALUES (39,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (39,
+   VALUES (39,
         1,
         8,
         '2021-04-01',
@@ -3221,7 +3225,7 @@ VALUES (39,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (8,
+   VALUES (8,
         38,
         16,
         '2021-04-01',
@@ -3232,7 +3236,7 @@ VALUES (8,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (34,
+   VALUES (34,
         1,
         37,
         '2021-04-01',
@@ -3243,7 +3247,7 @@ VALUES (34,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (8,
+   VALUES (8,
         45,
         64,
         '2021-04-01',
@@ -3254,7 +3258,7 @@ VALUES (8,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         16,
         '2021-04-01',
@@ -3265,7 +3269,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (39,
+   VALUES (39,
         1,
         34,
         '2021-04-01',
@@ -3276,7 +3280,7 @@ VALUES (39,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (39,
+   VALUES (39,
         1,
         34,
         '2021-04-01',
@@ -3287,7 +3291,7 @@ VALUES (39,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (39,
+   VALUES (39,
         1,
         46,
         '2021-04-01',
@@ -3298,7 +3302,7 @@ VALUES (39,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         11,
         '2021-04-01',
@@ -3309,7 +3313,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (5,
+   VALUES (5,
         8,
         61,
         '2021-04-01',
@@ -3320,7 +3324,7 @@ VALUES (5,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (37,
+   VALUES (37,
         4,
         62,
         '2021-04-01',
@@ -3331,7 +3335,7 @@ VALUES (37,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         36,
         '2021-04-01',
@@ -3342,7 +3346,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         33,
         '2021-04-01',
@@ -3353,7 +3357,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (29,
+   VALUES (29,
         1,
         53,
         '2021-04-01',
@@ -3364,7 +3368,7 @@ VALUES (29,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         1,
         '2021-04-01',
@@ -3375,7 +3379,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (29,
+   VALUES (29,
         1,
         53,
         '2021-04-01',
@@ -3386,7 +3390,7 @@ VALUES (29,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         16,
         '2021-04-01',
@@ -3397,7 +3401,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (2,
+   VALUES (2,
         6,
         37,
         '2021-04-01',
@@ -3408,7 +3412,7 @@ VALUES (2,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (19,
+   VALUES (19,
         3,
         62,
         '2021-04-01',
@@ -3419,7 +3423,7 @@ VALUES (19,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (29,
+   VALUES (29,
         1,
         53,
         '2021-04-01',
@@ -3430,7 +3434,7 @@ VALUES (29,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         16,
         '2021-04-01',
@@ -3441,7 +3445,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (39,
+   VALUES (39,
         1,
         9,
         '2021-04-01',
@@ -3452,7 +3456,7 @@ VALUES (39,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (8,
+   VALUES (8,
         18,
         6,
         '2021-04-01',
@@ -3463,7 +3467,7 @@ VALUES (8,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         33,
         '2021-04-01',
@@ -3474,7 +3478,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (41,
+   VALUES (41,
         33,
         31,
         '2021-04-01',
@@ -3485,7 +3489,7 @@ VALUES (41,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         19,
         '2021-04-01',
@@ -3496,7 +3500,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (15,
+   VALUES (15,
         7,
         56,
         '2021-04-01',
@@ -3507,7 +3511,7 @@ VALUES (15,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         50,
         '2021-04-01',
@@ -3518,7 +3522,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         33,
         '2021-04-01',
@@ -3529,7 +3533,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (29,
+   VALUES (29,
         1,
         53,
         '2021-04-01',
@@ -3540,7 +3544,7 @@ VALUES (29,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (2,
+   VALUES (2,
         6,
         37,
         '2021-04-01',
@@ -3551,7 +3555,7 @@ VALUES (2,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (39,
+   VALUES (39,
         1,
         10,
         '2021-04-01',
@@ -3562,7 +3566,7 @@ VALUES (39,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (39,
+   VALUES (39,
         1,
         10,
         '2021-04-01',
@@ -3573,7 +3577,7 @@ VALUES (39,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (8,
+   VALUES (8,
         38,
         16,
         '2021-04-01',
@@ -3584,7 +3588,7 @@ VALUES (8,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (36,
+   VALUES (36,
         41,
         63,
         '2021-04-01',
@@ -3595,7 +3599,7 @@ VALUES (36,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (36,
+   VALUES (36,
         41,
         63,
         '2021-04-01',
@@ -3606,7 +3610,7 @@ VALUES (36,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (29,
+   VALUES (29,
         1,
         53,
         '2021-04-01',
@@ -3617,7 +3621,7 @@ VALUES (29,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         27,
         '2021-04-01',
@@ -3628,7 +3632,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         1,
         '2021-04-01',
@@ -3639,7 +3643,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         59,
         '2021-04-01',
@@ -3650,7 +3654,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (26,
+   VALUES (26,
         1,
         48,
         '2021-04-01',
@@ -3661,7 +3665,7 @@ VALUES (26,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         33,
         '2021-04-01',
@@ -3672,7 +3676,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (15,
+   VALUES (15,
         7,
         56,
         '2021-04-01',
@@ -3683,7 +3687,7 @@ VALUES (15,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (19,
+   VALUES (19,
         36,
         57,
         '2021-04-01',
@@ -3694,7 +3698,7 @@ VALUES (19,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (39,
+   VALUES (39,
         1,
         8,
         '2021-04-01',
@@ -3705,7 +3709,7 @@ VALUES (39,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         33,
         '2021-04-01',
@@ -3716,7 +3720,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         33,
         '2021-04-01',
@@ -3727,7 +3731,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         42,
         '2021-04-01',
@@ -3738,7 +3742,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (29,
+   VALUES (29,
         1,
         53,
         '2021-04-01',
@@ -3749,7 +3753,7 @@ VALUES (29,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (29,
+   VALUES (29,
         1,
         53,
         '2021-04-01',
@@ -3760,7 +3764,7 @@ VALUES (29,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         33,
         '2021-04-01',
@@ -3771,7 +3775,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (7,
+   VALUES (7,
         18,
         16,
         '2021-04-01',
@@ -3782,7 +3786,7 @@ VALUES (7,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (41,
+   VALUES (41,
         33,
         53,
         '2021-04-01',
@@ -3793,7 +3797,7 @@ VALUES (41,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (29,
+   VALUES (29,
         1,
         53,
         '2021-04-01',
@@ -3804,7 +3808,7 @@ VALUES (29,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (19,
+   VALUES (19,
         3,
         62,
         '2021-04-01',
@@ -3815,7 +3819,7 @@ VALUES (19,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (29,
+   VALUES (29,
         1,
         53,
         '2021-04-01',
@@ -3826,7 +3830,7 @@ VALUES (29,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (39,
+   VALUES (39,
         1,
         34,
         '2021-04-01',
@@ -3837,7 +3841,7 @@ VALUES (39,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (39,
+   VALUES (39,
         1,
         34,
         '2021-04-01',
@@ -3848,7 +3852,7 @@ VALUES (39,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         26,
         '2021-04-01',
@@ -3859,7 +3863,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (31,
+   VALUES (31,
         13,
         37,
         '2021-04-01',
@@ -3870,7 +3874,7 @@ VALUES (31,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (11,
+   VALUES (11,
         43,
         2,
         '2021-04-01',
@@ -3881,7 +3885,7 @@ VALUES (11,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (11,
+   VALUES (11,
         43,
         2,
         '2021-04-01',
@@ -3892,7 +3896,7 @@ VALUES (11,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         61,
         '2021-04-01',
@@ -3903,7 +3907,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (31,
+   VALUES (31,
         13,
         37,
         '2021-04-01',
@@ -3914,7 +3918,7 @@ VALUES (31,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (31,
+   VALUES (31,
         13,
         37,
         '2021-04-01',
@@ -3925,7 +3929,7 @@ VALUES (31,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (26,
+   VALUES (26,
         1,
         20,
         '2021-04-01',
@@ -3936,7 +3940,7 @@ VALUES (26,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (31,
+   VALUES (31,
         13,
         37,
         '2021-04-01',
@@ -3947,7 +3951,7 @@ VALUES (31,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         33,
         '2021-04-01',
@@ -3958,7 +3962,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (22,
+   VALUES (22,
         21,
         60,
         '2021-04-01',
@@ -3969,7 +3973,7 @@ VALUES (22,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (26,
+   VALUES (26,
         1,
         21,
         '2021-04-01',
@@ -3980,7 +3984,7 @@ VALUES (26,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (26,
+   VALUES (26,
         1,
         21,
         '2021-04-01',
@@ -3991,7 +3995,7 @@ VALUES (26,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (31,
+   VALUES (31,
         6,
         37,
         '2021-04-01',
@@ -4002,7 +4006,7 @@ VALUES (31,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (31,
+   VALUES (31,
         13,
         37,
         '2021-04-01',
@@ -4013,7 +4017,7 @@ VALUES (31,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (36,
+   VALUES (36,
         41,
         60,
         '2021-04-01',
@@ -4024,7 +4028,7 @@ VALUES (36,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (36,
+   VALUES (36,
         41,
         60,
         '2021-04-01',
@@ -4035,7 +4039,7 @@ VALUES (36,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (31,
+   VALUES (31,
         6,
         37,
         '2021-04-01',
@@ -4046,7 +4050,7 @@ VALUES (31,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (31,
+   VALUES (31,
         6,
         37,
         '2021-04-01',
@@ -4057,7 +4061,7 @@ VALUES (31,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (31,
+   VALUES (31,
         13,
         37,
         '2021-04-01',
@@ -4068,7 +4072,7 @@ VALUES (31,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         18,
         '2021-04-01',
@@ -4079,7 +4083,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         22,
         '2021-04-01',
@@ -4090,7 +4094,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         33,
         '2021-04-01',
@@ -4101,7 +4105,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         16,
         '2021-04-01',
@@ -4112,7 +4116,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         36,
         '2021-04-01',
@@ -4123,7 +4127,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         33,
         '2021-04-01',
@@ -4134,7 +4138,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (2,
+   VALUES (2,
         6,
         37,
         '2021-04-01',
@@ -4145,7 +4149,7 @@ VALUES (2,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (8,
+   VALUES (8,
         19,
         16,
         '2021-04-01',
@@ -4156,7 +4160,7 @@ VALUES (8,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (16,
+   VALUES (16,
         23,
         51,
         '2021-04-01',
@@ -4167,7 +4171,7 @@ VALUES (16,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (16,
+   VALUES (16,
         23,
         51,
         '2021-04-01',
@@ -4178,7 +4182,7 @@ VALUES (16,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         50,
         '2021-04-01',
@@ -4189,7 +4193,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         1,
         '2021-04-01',
@@ -4200,7 +4204,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (2,
+   VALUES (2,
         6,
         37,
         '2021-04-01',
@@ -4211,7 +4215,7 @@ VALUES (2,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         11,
         '2021-04-01',
@@ -4222,7 +4226,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         61,
         '2021-04-01',
@@ -4233,7 +4237,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (31,
+   VALUES (31,
         6,
         37,
         '2021-04-01',
@@ -4244,7 +4248,7 @@ VALUES (31,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (2,
+   VALUES (2,
         6,
         37,
         '2021-04-01',
@@ -4255,7 +4259,7 @@ VALUES (2,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (26,
+   VALUES (26,
         1,
         48,
         '2021-04-01',
@@ -4266,7 +4270,7 @@ VALUES (26,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (35,
+   VALUES (35,
         5,
         13,
         '2021-04-01',
@@ -4277,7 +4281,7 @@ VALUES (35,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (2,
+   VALUES (2,
         6,
         37,
         '2021-04-01',
@@ -4288,7 +4292,7 @@ VALUES (2,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         16,
         '2021-04-01',
@@ -4299,7 +4303,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         61,
         '2021-04-01',
@@ -4310,7 +4314,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (4,
+   VALUES (4,
         32,
         61,
         '2021-04-01',
@@ -4321,7 +4325,7 @@ VALUES (4,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (41,
+   VALUES (41,
         33,
         53,
         '2021-04-01',
@@ -4332,7 +4336,7 @@ VALUES (41,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (8,
+   VALUES (8,
         45,
         64,
         '2021-04-01',
@@ -4343,7 +4347,7 @@ VALUES (8,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (1,
+   VALUES (1,
         1,
         16,
         '2021-04-01',
@@ -4354,7 +4358,7 @@ VALUES (1,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (4,
+   VALUES (4,
         32,
         61,
         '2021-04-01',
@@ -4365,7 +4369,7 @@ VALUES (4,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (20,
+   VALUES (20,
         1,
         24,
         '2021-04-01',
@@ -4376,7 +4380,7 @@ VALUES (20,
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
-VALUES (28,
+   VALUES (28,
         1,
         24,
         '2021-04-01',
