@@ -1,631 +1,196 @@
-CREATE TABLE expense_types (
+/*
+   This file defines the big_spender database schema comprising the main data table "spends"
+   and the three lookup tables "expense_types", "expense_areas" and "suppliers".  The "spends"
+   table contains foreign keys to the three lookup tables.
+
+   All tables use the SERIAL pseudo-type to provide an auto-incrementing primary key.  Each
+   table has its own sequence of id values.
+*/
+CREATE TABLE expense_types (              -- defines various types of expense by name, e.g. Cleaning Equipment
    id SERIAL PRIMARY KEY,
    expense_type VARCHAR(30) NOT NULL);
 
 
-CREATE TABLE expense_areas (
+CREATE TABLE expense_areas (              -- defines different areas of the hospital's activity incurring the expense
    id SERIAL PRIMARY KEY,
    expense_area VARCHAR(30) NOT NULL);
 
 
-CREATE TABLE suppliers (
+CREATE TABLE suppliers (                  -- defines the suppliers of items on which expenditure is incurred
    id SERIAL PRIMARY KEY,
    supplier VARCHAR(60) NOT NULL);
 
 
-CREATE TABLE spends (
+CREATE TABLE spends (                     -- defines the individual expenses
    id SERIAL PRIMARY KEY,
    expense_type_id INT REFERENCES expense_types(id),
    expense_area_id INT REFERENCES expense_areas(id),
-   supplier_id INT REFERENCES suppliers(id), date DATE NOT NULL,
+   supplier_id INT REFERENCES suppliers(id), 
+   date DATE NOT NULL,
    transaction_no INT NOT NULL,
    supplier_inv_no VARCHAR(20) NOT NULL,
    description VARCHAR(90) NOT NULL,
    amount NUMERIC NOT NULL);
 
 
-INSERT INTO expense_types (expense_type)
-   VALUES ('AUC Additions');
-
-
-INSERT INTO expense_types (expense_type)
-   VALUES ('Bank Nurse : Qualified');
-
-
-INSERT INTO expense_types (expense_type)
-   VALUES ('Bedding & Linen: Disp');
-
-
-INSERT INTO expense_types (expense_type)
-   VALUES ('Bldg Ctrcts - PFI Svc Chg');
-
-
-INSERT INTO expense_types (expense_type)
-   VALUES ('Bldg/Eng Equip Maint/Rep');
-
-
-INSERT INTO expense_types (expense_type)
-   VALUES ('Cleaning Equipment');
-
-
-INSERT INTO expense_types (expense_type)
-   VALUES ('Computer Hardware Purch');
-
-
-INSERT INTO expense_types (expense_type)
-   VALUES ('Computer Maintenance');
-
-
-INSERT INTO expense_types (expense_type)
-   VALUES ('Consultant');
-
-
-INSERT INTO expense_types (expense_type)
-   VALUES ('Contr Refuse & Clin Waste');
-
-
-INSERT INTO expense_types (expense_type)
-   VALUES ('Data Lines');
-
-
-INSERT INTO expense_types (expense_type)
-   VALUES ('Electricity');
-
-
-INSERT INTO expense_types (expense_type)
-   VALUES ('Ext Contr Laundry');
-
-
-INSERT INTO expense_types (expense_type)
-   VALUES ('External Consultancy Fees');
-
-
-INSERT INTO expense_types (expense_type)
-   VALUES ('External Contractors');
-
-
-INSERT INTO expense_types (expense_type)
-   VALUES ('Foundation Programme - F2');
-
-
-INSERT INTO expense_types (expense_type)
-   VALUES ('Furniture & Fittings');
-
-
-INSERT INTO expense_types (expense_type)
-   VALUES ('Gas');
-
-
-INSERT INTO expense_types (expense_type)
-   VALUES ('Hcare Srv Rec NHS Trust');
-
-
-INSERT INTO expense_types (expense_type)
-   VALUES ('Income tax - Current');
-
-
-INSERT INTO expense_types (expense_type)
-   VALUES ('Laboratory Reagents');
-
-
-INSERT INTO expense_types (expense_type)
-   VALUES ('Lease Rents');
-
-
-INSERT INTO expense_types (expense_type)
-   VALUES ('Med & Surg Equip Disp');
-
-
-INSERT INTO expense_types (expense_type)
-   VALUES ('Med & Surg Equip General');
-
-
-INSERT INTO expense_types (expense_type)
-   VALUES ('Med & Surg Maint Contract');
-
-
-INSERT INTO expense_types (expense_type)
-   VALUES ('Med Equip Additions');
-
-
-INSERT INTO expense_types (expense_type)
-   VALUES ('Miscellaneous Expenditure');
-
-
-INSERT INTO expense_types (expense_type)
-   VALUES ('National Insurance - Curr');
-
-
-INSERT INTO expense_types (expense_type)
-   VALUES ('NonNHS Trade Pybls Curr');
-
-
-INSERT INTO expense_types (expense_type)
-   VALUES ('Nurse band 6');
-
-
-INSERT INTO expense_types (expense_type)
-   VALUES ('Other Agency Staff');
-
-
-INSERT INTO expense_types (expense_type)
-   VALUES ('Other Clinical Costs');
-
-
-INSERT INTO expense_types (expense_type)
-   VALUES ('Other Liabilities - Curr');
-
-
-INSERT INTO expense_types (expense_type)
-   VALUES ('Other recvables - Current');
-
-
-INSERT INTO expense_types (expense_type)
-   VALUES ('Professional Fees');
-
-
-INSERT INTO expense_types (expense_type)
-   VALUES ('Rates');
-
-
-INSERT INTO expense_types (expense_type)
-   VALUES ('Secndd staff frm othr org');
-
-
-INSERT INTO expense_types (expense_type)
-   VALUES ('Staff Location/Bleeps');
-
-
-INSERT INTO expense_types (expense_type)
-   VALUES ('Stocks Finished Goods');
-
-
-INSERT INTO expense_types (expense_type)
-   VALUES ('Water');
-
-
-INSERT INTO expense_types (expense_type)
-   VALUES ('X-Ray Equipment Purchase');
-
-
-INSERT INTO expense_areas (expense_area)
-   VALUES ('Balance Sheet');
-
-
-INSERT INTO expense_areas (expense_area)
-   VALUES ('Better Hospital Food');
-
-
-INSERT INTO expense_areas (expense_area)
-   VALUES ('Bowel Cancer Screening Centre');
-
-
-INSERT INTO expense_areas (expense_area)
-   VALUES ('Cardiology Medics');
-
-
-INSERT INTO expense_areas (expense_area)
-   VALUES ('Chief Executive');
-
-
-INSERT INTO expense_areas (expense_area)
-   VALUES ('Contingency');
-
-
-INSERT INTO expense_areas (expense_area)
-   VALUES ('COO Operational Team');
-
-
-INSERT INTO expense_areas (expense_area)
-   VALUES ('COVID-19');
-
-
-INSERT INTO expense_areas (expense_area)
-   VALUES ('CVI''s - DAF''s 2007-08');
-
-
-INSERT INTO expense_areas (expense_area)
-   VALUES ('Diabetic Centre');
-
-
-INSERT INTO expense_areas (expense_area)
-   VALUES ('Digital Care Record');
-
-
-INSERT INTO expense_areas (expense_area)
-   VALUES ('Discharge Co-ordination');
-
-
-INSERT INTO expense_areas (expense_area)
-   VALUES ('Drugs reserve');
-
-
-INSERT INTO expense_areas (expense_area)
-   VALUES ('Energy NTN');
-
-
-INSERT INTO expense_areas (expense_area)
-   VALUES ('Energy-Rates- No Special');
-
-
-INSERT INTO expense_areas (expense_area)
-   VALUES ('Equipt WRH');
-
-
-INSERT INTO expense_areas (expense_area)
-   VALUES ('Haematology');
-
-
-INSERT INTO expense_areas (expense_area)
-   VALUES ('ICT Contingency');
-
-
-INSERT INTO expense_areas (expense_area)
-   VALUES ('ICT Recharges');
-
-
-INSERT INTO expense_areas (expense_area)
-   VALUES ('Kidderminster Energy');
-
-
-INSERT INTO expense_areas (expense_area)
-   VALUES ('Kings Court');
-
-
-INSERT INTO expense_areas (expense_area)
-   VALUES ('Laundry Serv-No Spec');
-
-
-INSERT INTO expense_areas (expense_area)
-   VALUES ('Madel Acute');
-
-
-INSERT INTO expense_areas (expense_area)
-   VALUES ('Managed Print');
-
-
-INSERT INTO expense_areas (expense_area)
-   VALUES ('New Hospital Impl Admin');
-
-
-INSERT INTO expense_areas (expense_area)
-   VALUES ('Newtown Acute Payments');
-
-
-INSERT INTO expense_areas (expense_area)
-   VALUES ('Newtown Equipt');
-
-
-INSERT INTO expense_areas (expense_area)
-   VALUES ('Oral MaxFac- MedStaff WRH');
-
-
-INSERT INTO expense_areas (expense_area)
-   VALUES ('Other Pass Throughs');
-
-
-INSERT INTO expense_areas (expense_area)
-   VALUES ('Overseas Nurses');
-
-
-INSERT INTO expense_areas (expense_area)
-   VALUES ('Path General');
-
-
-INSERT INTO expense_areas (expense_area)
-   VALUES ('PFI- Unitary Payments');
-
-
-INSERT INTO expense_areas (expense_area)
-   VALUES ('Radiology Countwide');
-
-
-INSERT INTO expense_areas (expense_area)
-   VALUES ('Radiology Dept Alex');
-
-
-INSERT INTO expense_areas (expense_area)
-   VALUES ('Radiology Dept KGH');
-
-
-INSERT INTO expense_areas (expense_area)
-   VALUES ('Respiratory Medics');
-
-
-INSERT INTO expense_areas (expense_area)
-   VALUES ('SLA Split of income');
-
-
-INSERT INTO expense_areas (expense_area)
-   VALUES ('Software Support and Licences');
-
-
-INSERT INTO expense_areas (expense_area)
-   VALUES ('Sterile Services - Alex');
-
-
-INSERT INTO expense_areas (expense_area)
-   VALUES ('Telephone Serv- Alex');
-
-
-INSERT INTO expense_areas (expense_area)
-   VALUES ('Trust Wide Rates');
-
-
-INSERT INTO expense_areas (expense_area)
-   VALUES ('Trustwide');
-
-
-INSERT INTO expense_areas (expense_area)
-   VALUES ('WAN');
-
-
-INSERT INTO expense_areas (expense_area)
-   VALUES ('WIFI');
-
-
-INSERT INTO expense_areas (expense_area)
-   VALUES ('Xerox Contract');
-
-
-INSERT INTO suppliers (supplier)
-   VALUES ('3D ALUMINIUM PLAS LTD');
-
-
-INSERT INTO suppliers (supplier)
-   VALUES ('ADEPT TELECOM');
-
-
-INSERT INTO suppliers (supplier)
-   VALUES ('ALLIANCE HEALTHCARE DISTRIBUTION LTD');
-
-
-INSERT INTO suppliers (supplier)
-   VALUES ('ALLOGA UK LTD');
-
-
-INSERT INTO suppliers (supplier)
-   VALUES ('ALLSCRIPTS HEALTHCARE (IT) UK LTD');
-
-
-INSERT INTO suppliers (supplier)
-   VALUES ('ALTIATECH LTD');
-
-
-INSERT INTO suppliers (supplier)
-   VALUES ('ARJO UK LTD');
-
-
-INSERT INTO suppliers (supplier)
-   VALUES ('BATH ASU');
-
-
-INSERT INTO suppliers (supplier)
-   VALUES ('BAYER PLC');
-
-
-INSERT INTO suppliers (supplier)
-   VALUES ('BIOTEST UK LTD');
-
-
-INSERT INTO suppliers (supplier)
-   VALUES ('BIRMINGHAM & SOLIHULL MENTAL HEALTH NHS FOUNDATION TRUST');
-
-
-INSERT INTO suppliers (supplier)
-   VALUES ('BOXXE LTD');
-
-
-INSERT INTO suppliers (supplier)
-   VALUES ('CARE QUALITY COMMISSION');
-
-
-INSERT INTO suppliers (supplier)
-   VALUES ('CLINISYS SOLUTIONS LTD');
-
-
-INSERT INTO suppliers (supplier)
-   VALUES ('COIF CHARITIES ETHICAL INVESTMENT FUND');
-
-
-INSERT INTO suppliers (supplier)
-   VALUES ('COMPUTACENTER (UK) LTD');
-
-
-INSERT INTO suppliers (supplier)
-   VALUES ('COUCH PERRY&WILKES');
-
-
-INSERT INTO suppliers (supplier)
-   VALUES ('DD PORTER LTD');
-
-
-INSERT INTO suppliers (supplier)
-   VALUES ('E MANTON LTD');
-
-
-INSERT INTO suppliers (supplier)
-   VALUES ('FRESENIUS MEDICAL CARE UK LTD');
-
-
-INSERT INTO suppliers (supplier)
-   VALUES ('GE MEDICAL SYSTEMS LTD');
-
-
-INSERT INTO suppliers (supplier)
-   VALUES ('HELICON HEALTH LTD');
-
-
-INSERT INTO suppliers (supplier)
-   VALUES ('HEREFORDSHIRE & WORCESTERSHIRE HEALTH & CARE NHS TRUST');
-
-
-INSERT INTO suppliers (supplier)
-   VALUES ('INLAND REVENUE CIS');
-
-
-INSERT INTO suppliers (supplier)
-   VALUES ('INSIGNIA MEDICAL SYSTEMS LTD');
-
-
-INSERT INTO suppliers (supplier)
-   VALUES ('INTERCLASS PLC');
-
-
-INSERT INTO suppliers (supplier)
-   VALUES ('JMG ROOFING LTD');
-
-
-INSERT INTO suppliers (supplier)
-   VALUES ('KARL STORZ ENDOSCOPY UK LTD');
-
-
-INSERT INTO suppliers (supplier)
-   VALUES ('LYNTON TRAILERS (UK) LTD');
-
-
-INSERT INTO suppliers (supplier)
-   VALUES ('MAQUET LTD');
-
-
-INSERT INTO suppliers (supplier)
-   VALUES ('MEDICA REPORTING LTD');
-
-
-INSERT INTO suppliers (supplier)
-   VALUES ('MEDTRONIC LTD');
-
-
-INSERT INTO suppliers (supplier)
-   VALUES ('MIDWEST ELECTRICAL SERVICES LTD');
-
-
-INSERT INTO suppliers (supplier)
-   VALUES ('NHS BLOOD & TRANSPLANT');
-
-
-INSERT INTO suppliers (supplier)
-   VALUES ('NHS BUSINESS SERVICES AUTHORITY');
-
-
-INSERT INTO suppliers (supplier)
-   VALUES ('NHS HEREFORDSHIRE AND WORCESTERSHIRE CCG');
-
-
-INSERT INTO suppliers (supplier)
-   VALUES ('NHS PROFESSIONALS LTD');
-
-
-INSERT INTO suppliers (supplier)
-   VALUES ('NOVARTIS PHARMACEUTICALS UK LTD');
-
-
-INSERT INTO suppliers (supplier)
-   VALUES ('OLYMPUS KEYMED');
-
-
-INSERT INTO suppliers (supplier)
-   VALUES ('OMNICELL LTD');
-
-
-INSERT INTO suppliers (supplier)
-   VALUES ('P2G MANAGEMENT LTD');
-
-
-INSERT INTO suppliers (supplier)
-   VALUES ('PICK EVERARD');
-
-
-INSERT INTO suppliers (supplier)
-   VALUES ('PINNEGAR HAYWARD DESIGN');
-
-
-INSERT INTO suppliers (supplier)
-   VALUES ('REDDITCH BOROUGH COUNCIL');
-
-
-INSERT INTO suppliers (supplier)
-   VALUES ('REGIS PROJECT MANAGEMENT LTD');
-
-
-INSERT INTO suppliers (supplier)
-   VALUES ('ROCHE PRODUCTS LTD');
-
-
-INSERT INTO suppliers (supplier)
-   VALUES ('SALFORD ROYAL HOSPITALS NHS FOUNDATION TRUST');
-
-
-INSERT INTO suppliers (supplier)
-   VALUES ('SIEMENS HEALTHCARE LTD');
-
-
-INSERT INTO suppliers (supplier)
-   VALUES ('SOFTCAT PLC');
-
-
-INSERT INTO suppliers (supplier)
-   VALUES ('SPELLER METCALFE MALVERN LTD');
-
-
-INSERT INTO suppliers (supplier)
-   VALUES ('ST HELENS & KNOWSLEY HOSPITALS NHS TRUST');
-
-
-INSERT INTO suppliers (supplier)
-   VALUES ('STRIDE TREGLOWN LTD');
-
-
-INSERT INTO suppliers (supplier)
-   VALUES ('SUPPLY CHAIN COORDINATION LIMITED');
-
-
-INSERT INTO suppliers (supplier)
-   VALUES ('SYNERGY HEALTH MANAGED SERVICES LTD');
-
-
-INSERT INTO suppliers (supplier)
-   VALUES ('TRAK SYSTEMS LTD');
-
-
-INSERT INTO suppliers (supplier)
-   VALUES ('TRANSFORM HOSPITAL GROUP LTD');
-
-
-INSERT INTO suppliers (supplier)
-   VALUES ('UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST');
-
-
-INSERT INTO suppliers (supplier)
-   VALUES ('WATER PLUS LTD');
-
-
-INSERT INTO suppliers (supplier)
-   VALUES ('WILLIAM GOUGH & SONS');
-
-
-INSERT INTO suppliers (supplier)
-   VALUES ('WORCESTER CITY COUNCIL');
-
-
-INSERT INTO suppliers (supplier)
-   VALUES ('WORCESTERSHIRE HOSPITAL SPC PLC');
-
-
-INSERT INTO suppliers (supplier)
-   VALUES ('WYE VALLEY NHS TRUST');
-
-
-INSERT INTO suppliers (supplier)
-   VALUES ('WYRE FOREST DISTRICT COUNCIL');
-
-
-INSERT INTO suppliers (supplier)
-   VALUES ('XEROX (UK) LTD');
-
-
-INSERT INTO suppliers (supplier)
-   VALUES ('XOGRAPH HEALTHCARE LTD');
+INSERT INTO expense_types (expense_type)     -- note - no id value provided (it's auto-generated)
+   VALUES ('AUC Additions'),
+          ('Bank Nurse : Qualified'),
+          ('Bedding & Linen: Disp'),
+          ('Bldg Ctrcts - PFI Svc Chg'),
+          ('Bldg/Eng Equip Maint/Rep'),
+          ('Cleaning Equipment'),
+          ('Computer Hardware Purch'),
+          ('Computer Maintenance'),
+          ('Consultant'),
+          ('Contr Refuse & Clin Waste'),
+          ('Data Lines'),
+          ('Electricity'),
+          ('Ext Contr Laundry'),
+          ('External Consultancy Fees'),
+          ('External Contractors'),
+          ('Foundation Programme - F2'),
+          ('Furniture & Fittings'),
+          ('Gas'),
+          ('Hcare Srv Rec NHS Trust'),
+          ('Income tax - Current'),
+          ('Laboratory Reagents'),
+          ('Lease Rents'),
+          ('Med & Surg Equip Disp'),
+          ('Med & Surg Equip General'),
+          ('Med & Surg Maint Contract'),
+          ('Med Equip Additions'),
+          ('Miscellaneous Expenditure'),
+          ('National Insurance - Curr'),
+          ('NonNHS Trade Pybls Curr'),
+          ('Nurse band 6'),
+          ('Other Agency Staff'),
+          ('Other Clinical Costs'),
+          ('Other Liabilities - Curr'),
+          ('Other recvables - Current'),
+          ('Professional Fees'),
+          ('Rates'),
+          ('Secndd staff frm othr org'),
+          ('Staff Location/Bleeps'),
+          ('Stocks Finished Goods'),
+          ('Water'),
+          ('X-Ray Equipment Purchase');
+
+
+INSERT INTO expense_areas (expense_area)     -- note - no id value provided (it's auto-generated)
+   VALUES ('Balance Sheet'),
+          ('Better Hospital Food'),
+          ('Bowel Cancer Screening Centre'),
+          ('Cardiology Medics'),
+          ('Chief Executive'),
+          ('Contingency'),
+          ('COO Operational Team'),
+          ('COVID-19'),
+          ('CVI''s - DAF''s 2007-08'),
+          ('Diabetic Centre'),
+          ('Digital Care Record'),
+          ('Discharge Co-ordination'),
+          ('Drugs reserve'),
+          ('Energy NTN'),
+          ('Energy-Rates- No Special'),
+          ('Equipt WRH'),
+          ('Haematology'),
+          ('ICT Contingency'),
+          ('ICT Recharges'),
+          ('Kidderminster Energy'),
+          ('Kings Court'),
+          ('Laundry Serv-No Spec'),
+          ('Madel Acute'),
+          ('Managed Print'),
+          ('New Hospital Impl Admin'),
+          ('Newtown Acute Payments'),
+          ('Newtown Equipt'),
+          ('Oral MaxFac- MedStaff WRH'),
+          ('Other Pass Throughs'),
+          ('Overseas Nurses'),
+          ('Path General'),
+          ('PFI- Unitary Payments'),
+          ('Radiology Countwide'),
+          ('Radiology Dept Alex'),
+          ('Radiology Dept KGH'),
+          ('Respiratory Medics'),
+          ('SLA Split of income'),
+          ('Software Support and Licences'),
+          ('Sterile Services - Alex'),
+          ('Telephone Serv- Alex'),
+          ('Trust Wide Rates'),
+          ('Trustwide'),
+          ('WAN'),
+          ('WIFI'),
+          ('Xerox Contract');
+
+
+INSERT INTO suppliers (supplier)     -- note - no id value provided (it's auto-generated)
+   VALUES ('3D ALUMINIUM PLAS LTD'),
+          ('ADEPT TELECOM'),
+          ('ALLIANCE HEALTHCARE DISTRIBUTION LTD'),
+          ('ALLOGA UK LTD'),
+          ('ALLSCRIPTS HEALTHCARE (IT) UK LTD'),
+          ('ALTIATECH LTD'),
+          ('ARJO UK LTD'),
+          ('BATH ASU'),
+          ('BAYER PLC'),
+          ('BIOTEST UK LTD'),
+          ('BIRMINGHAM & SOLIHULL MENTAL HEALTH NHS FOUNDATION TRUST'),
+          ('BOXXE LTD'),
+          ('CARE QUALITY COMMISSION'),
+          ('CLINISYS SOLUTIONS LTD'),
+          ('COIF CHARITIES ETHICAL INVESTMENT FUND'),
+          ('COMPUTACENTER (UK) LTD'),
+          ('COUCH PERRY&WILKES'),
+          ('DD PORTER LTD'),
+          ('E MANTON LTD'),
+          ('FRESENIUS MEDICAL CARE UK LTD'),
+          ('GE MEDICAL SYSTEMS LTD'),
+          ('HELICON HEALTH LTD'),
+          ('HEREFORDSHIRE & WORCESTERSHIRE HEALTH & CARE NHS TRUST'),
+          ('INLAND REVENUE CIS'),
+          ('INSIGNIA MEDICAL SYSTEMS LTD'),
+          ('INTERCLASS PLC'),
+          ('JMG ROOFING LTD'),
+          ('KARL STORZ ENDOSCOPY UK LTD'),
+          ('LYNTON TRAILERS (UK) LTD'),
+          ('MAQUET LTD'),
+          ('MEDICA REPORTING LTD'),
+          ('MEDTRONIC LTD'),
+          ('MIDWEST ELECTRICAL SERVICES LTD'),
+          ('NHS BLOOD & TRANSPLANT'),
+          ('NHS BUSINESS SERVICES AUTHORITY'),
+          ('NHS HEREFORDSHIRE AND WORCESTERSHIRE CCG'),
+          ('NHS PROFESSIONALS LTD'),
+          ('NOVARTIS PHARMACEUTICALS UK LTD'),
+          ('OLYMPUS KEYMED'),
+          ('OMNICELL LTD'),
+          ('P2G MANAGEMENT LTD'),
+          ('PICK EVERARD'),
+          ('PINNEGAR HAYWARD DESIGN'),
+          ('REDDITCH BOROUGH COUNCIL'),
+          ('REGIS PROJECT MANAGEMENT LTD'),
+          ('ROCHE PRODUCTS LTD'),
+          ('SALFORD ROYAL HOSPITALS NHS FOUNDATION TRUST'),
+          ('SIEMENS HEALTHCARE LTD'),
+          ('SOFTCAT PLC'),
+          ('SPELLER METCALFE MALVERN LTD'),
+          ('ST HELENS & KNOWSLEY HOSPITALS NHS TRUST'),
+          ('STRIDE TREGLOWN LTD'),
+          ('SUPPLY CHAIN COORDINATION LIMITED'),
+          ('SYNERGY HEALTH MANAGED SERVICES LTD'),
+          ('TRAK SYSTEMS LTD'),
+          ('TRANSFORM HOSPITAL GROUP LTD'),
+          ('UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST'),
+          ('WATER PLUS LTD'),
+          ('WILLIAM GOUGH & SONS'),
+          ('WORCESTER CITY COUNCIL'),
+          ('WORCESTERSHIRE HOSPITAL SPC PLC'),
+          ('WYE VALLEY NHS TRUST'),
+          ('WYRE FOREST DISTRICT COUNCIL'),
+          ('XEROX (UK) LTD'),
+          ('XOGRAPH HEALTHCARE LTD');
 
 
 INSERT INTO spends (expense_type_id, expense_area_id, supplier_id, date, transaction_no, supplier_inv_no, description, amount)
