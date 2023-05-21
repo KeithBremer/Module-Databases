@@ -2,17 +2,19 @@
 
 You are a developer building an Express application to connect your e-commerce database to a shop front. Your client requires a fully tested API so you will write this application TDD-style: writing the test first and then the code to make the test pass. There is a starter test given to help you, that satisfies the first user story.
 
+You're just looking to implement the API, not a frontend which uses the API (though feel free as an extension, if you're interested!)
+
 How will you make this test pass?
 
 ## Learning Objectives
-
+```objectives
 - Write unit tests for new API endpoints
 - Implement new API endpoints that meet user requirements
 - Practice TDD development workflow
 - Handle errors for invalid data inputs
 - Use Git feature branch workflow
 - Manage secrets in a shared codebase
-
+```
 ## User Stories
 
 As a developer, I want to add new API endpoints to the NodeJS application for the cyf-ecommerce-api, so that I can improve the functionality of the application.
@@ -31,6 +33,8 @@ As a developer, I want to build up my API using TDD - writing the test first and
 1. As a user, I want to delete an existing customer only if they do not have any orders.
 1. As a user, I want to view all orders with their items for a specific customer, including order references, dates, product names, unit prices, suppliers, and quantities.
 
+**These user stories describe the API. Do not build a front end or database.**
+
 ## Acceptance Criteria
 
 - [ ] Each user story has an accompanying unit test
@@ -38,6 +42,7 @@ As a developer, I want to build up my API using TDD - writing the test first and
 
 <details>
 <summary>Try writing out your own acceptance criteria from the user stories before looking here</summary>
+
 - [ ] Endpoint `/products` should return a list of all product names with their prices and supplier names.
 - [ ] Endpoint `/products` should filter the list of products by name using a query parameter, even if the parameter is not used.
 - [ ] Endpoint `/customers/:customerId` should load a single customer by their ID.
@@ -51,10 +56,10 @@ As a developer, I want to build up my API using TDD - writing the test first and
 - [ ] Endpoint `/customers/:customerId/orders` should load all the orders along with the items in the orders of a specific customer. The information returned should include order references, order dates, product names, unit prices, suppliers, and quantities.
 </details>
 
-### Sanity check!
+### Quality check!
 
 In this project, you must write the test first.
 
-It's better to turn in a smaller set of user stories than to turn in untested features.
+It's better to turn in a smaller set of completed user stories than to turn in untested features.
 
 If you're running out of time, scope down your application rather than commit untested code. Cut your _scope_, not your quality.
