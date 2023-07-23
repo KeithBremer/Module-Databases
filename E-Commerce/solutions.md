@@ -58,10 +58,10 @@ You can even [draw relationship diagrams](https://mermaid.js.org/syntax/entityRe
 ```mermaid
 erDiagram
     customers ||--o{ orders : places
-    orders ||--0{ order_items : contains
-    products ||--0{ product_availability : of
-    suppliers ||--0{ product_availability : from
-    product_availability ||--0{ order_items : part-of
+    orders ||--o{ order_items : contains
+    products ||--o{ product_availability : of
+    suppliers ||--o{ product_availability : from
+    product_availability ||--o{ order_items : part-of
     customers {
         id INT PK
         name VARCHAR(50) NOT NULL
