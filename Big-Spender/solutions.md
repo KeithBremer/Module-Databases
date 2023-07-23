@@ -149,11 +149,15 @@ You could also use `description ILIKE '% fee %'` but this doesn't return any wit
 
 ---
 ---
+Most experienced SQL developers would use a subquery, as follows:
 ```sql
->SELECT s.date, s.transaction_no, s.description, s.amount
->  FROM spends s JOIN
->       expense_areas a ON (s.expense_area_id = a.id)
->  WHERE a.expense_area = 'Better Hospital Food';
+>SELECT date, transaction_no, description, amount
+>  FROM spends
+>  WHERE expense_area_id = (
+>         SELECT id
+>            FROM expense_areas
+>            WHERE expense_area = 'Better Hospital Food'
+>         );
 
     date    | transaction_no |         description         | amount 
 ------------+----------------+-----------------------------+--------
@@ -163,7 +167,16 @@ You could also use `description ILIKE '% fee %'` but this doesn't return any wit
 (3 rows)
 
 ```
-If you (the trainee) haven't yet encountered joins then this request will need two queries, as follows:
+
+If, however, you are not familiar with subqueries yet then a join can get the same results:
+```sql
+>SELECT s.date, s.transaction_no, s.description, s.amount
+>  FROM spends s JOIN
+>       expense_areas a ON (s.expense_area_id = a.id)
+>  WHERE a.expense_area = 'Better Hospital Food';
+
+```
+If you (the trainee) also haven't yet encountered joins then this request will need two queries, as follows:
 
 ```sql
 >SELECT id FROM expense_areas WHERE expense_area = 'Better Hospital Food';
@@ -176,18 +189,8 @@ If you (the trainee) haven't yet encountered joins then this request will need t
 >  FROM spends
 >  WHERE expense_area_id = 2;
 ```
-which results in the same three rows as the join solution.
+which results in the same three rows as the join solution. Note that you must copy the result of the first query into the where clause of the second.
 
-Another alternative is to use a subquery, as follows:
-```sql
->SELECT date, transaction_no, description, amount
->  FROM spends
->  WHERE expense_area_id = (
->         SELECT id
->            FROM expense_areas
->            WHERE expense_area = 'Better Hospital Food'
->         );
-```
 ---
 ---
 
@@ -212,12 +215,12 @@ Another alternative is to use a subquery, as follows:
 Note: this is not strictly correct but works because the only dates are the first of each month.  A more resilient query would be:
 
 ```sql
->SELECT date_trunc('month', date) as month, sum(amount)
+>SELECT date_trunc('month', date) as month, sum(amount) as total_amount
 >  FROM spends
 >  GROUP BY month;
 ```
 
-but note that the date format in the result appears differently in this case (including a time component set to midnight)
+but note that the date format in the result appears differently in this case (including a time component set to midnight). This can be fixed by explicitly formatting the result of date_trunc using a function (see if you can figure out how?)
 
 ---
 ---
@@ -323,7 +326,7 @@ You must first discover whether the supplier, expense type and expense areas exi
 >SELECT * FROM suppliers WHERE supplier = 'Dell';
 >SELECT * FROM expense_types WHERE expense_type = 'Hardware';
 >SELECT * FROM expense_areas WHERE expense_area = 'IT';
--- The above should all yield (0 rows)
+-- The above should each yield (0 rows)
 >INSERT INTO suppliers (supplier) VALUES ('Dell') RETURNING id;
  id 
 ----
