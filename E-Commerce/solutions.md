@@ -59,9 +59,9 @@ You can even [draw relationship diagrams](https://mermaid.js.org/syntax/entityRe
 erDiagram
     customers ||--o{ orders : places
     orders ||--o{ order_items : contains
-    products ||--o{ product_availability : of
-    suppliers ||--o{ product_availability : from
-    product_availability ||--o{ order_items : part-of
+    product_availability ||--o{ products : of
+    product_availability ||--o{ suppliers : from
+    order_items ||--o{ product_availability : forf
     customers {
         id INT PK
         name VARCHAR(50) NOT NULL
