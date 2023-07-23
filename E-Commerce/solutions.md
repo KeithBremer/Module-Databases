@@ -61,7 +61,7 @@ erDiagram
     orders ||--o{ order_items : contains
     product_availability ||--o{ products : of
     product_availability ||--o{ suppliers : from
-    order_items ||--o{ product_availability : forf
+    order_items }o--|| product_availability : forf
     customers {
         id INT PK
         name VARCHAR(50) NOT NULL
